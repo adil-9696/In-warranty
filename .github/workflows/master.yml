@@ -7,8 +7,8 @@ on:
     -cron: '30 02 * * *'
 jobs:
   run-postman-tests:
-  runs-on: Ubuntu-latest
-  steps:
+    runs-on: Ubuntu-latest
+    steps:
     - name: checkout the code
       uses: actions/checkout@v7.0.0
 

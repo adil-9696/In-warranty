@@ -6,7 +6,7 @@ on:
   schedule:
     -cron: '30 02 * * *'
 jobs:
-  run-postman-tests:
+  run-tests:
     runs-on: Ubuntu-latest
     steps:
     - name: checkout the code

@@ -933,6 +933,7 @@
               "    var jobID=pm.response.json().data.id;\r",
               "    var jobNumber=pm.response.json().data.job_number;\r",
               "\r",
+              "     pm.environment.set(\"JOBID\",jobID)\r",
               "    pm.collectionVariables.set(\"JobID\", jobID);\r",
               "    pm.collectionVariables.set(\"JOB #\", jobNumber)\r",
               "\r",
@@ -2482,7 +2483,7 @@
           "listen": "prerequest",
           "script": {
             "exec": [
-              "setTimeout(()=> {}, 2000)"
+              ""
             ],
             "type": "text/javascript",
             "packages": {},
@@ -2528,7 +2529,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\"job_id\":{{JobID}},\"problems\":[{\"id\":6,\"remark\":\"due to overuse\"}]}",
+          "raw": "{\"job_id\":{{JOBID}},\"problems\":[{\"id\":6,\"remark\":\"due to overuse\"}]}",
           "options": {
             "raw": {
               "language": "json"
@@ -2943,7 +2944,7 @@
           "listen": "prerequest",
           "script": {
             "exec": [
-              "setTimeout(()=> {}, 2000)"
+              ""
             ],
             "type": "text/javascript",
             "packages": {},
@@ -2989,7 +2990,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\"job_id\":{{JobID}}}",
+          "raw": "{\"job_id\":{{JOBID}}}",
           "options": {
             "raw": {
               "language": "json"

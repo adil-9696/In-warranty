@@ -2469,9 +2469,10 @@
           "script": {
             "exec": [
               "\r",
-              "\r",
+              "console.log(\"after pre-reponse@@@@@@@@@@!\")\r",
+              "console.log(pm.collectionVariables.get(\"JobID\"))\r",
               "pm.test(\"verfiy message\",function(){\r",
-              "    pm.expect(pm.response.json().message).to.eql(\"Repair successful.\")\r",
+              "    pm.expect(pm.response.json().message).to.be.eql(\"Repair successful.\")\r",
               "})"
             ],
             "type": "text/javascript",
@@ -2538,15 +2539,10 @@
           }
         },
         "url": {
-          "raw": "http://64.227.160.186:9000/v1/engineer/repaircomplete",
-          "protocol": "http",
+          "raw": "{{Base URL}}/v1/engineer/repaircomplete",
           "host": [
-            "64",
-            "227",
-            "160",
-            "186"
+            "{{Base URL}}"
           ],
-          "port": "9000",
           "path": [
             "v1",
             "engineer",

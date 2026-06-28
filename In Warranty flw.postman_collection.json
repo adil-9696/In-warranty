@@ -930,7 +930,7 @@
           "script": {
             "exec": [
               "\r",
-              "    const jobID=pm.response.json().data.id;\r",
+              "    var jobID=pm.response.json().data.id;\r",
               "    var jobNumber=pm.response.json().data.job_number;\r",
               "\r",
               "    pm.collectionVariables.set(\"JobID\", jobID);\r",

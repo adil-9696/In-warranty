@@ -2483,7 +2483,8 @@
           "listen": "prerequest",
           "script": {
             "exec": [
-              ""
+              "\r",
+              "console.log(pm.collectionVariables.get(\"JobID\"))"
             ],
             "type": "text/javascript",
             "packages": {},
@@ -2529,7 +2530,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\"job_id\":{{JOBID}},\"problems\":[{\"id\":6,\"remark\":\"due to overuse\"}]}",
+          "raw": "{\"job_id\":{{JobID}},\"problems\":[{\"id\":6,\"remark\":\"due to overuse\"}]}",
           "options": {
             "raw": {
               "language": "json"
@@ -2944,7 +2945,7 @@
           "listen": "prerequest",
           "script": {
             "exec": [
-              ""
+              "console.log(pm.collectionVariables.get(\"JobID\"))"
             ],
             "type": "text/javascript",
             "packages": {},
@@ -2990,7 +2991,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\"job_id\":{{JOBID}}}",
+          "raw": "{\"job_id\":{{JobID}}}",
           "options": {
             "raw": {
               "language": "json"

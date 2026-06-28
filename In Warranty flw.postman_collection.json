@@ -1939,6 +1939,25 @@
     },
     {
       "name": "Assign to Engineer",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "\r",
+              "\r",
+              "//console.log(pm.response.json())\r",
+              "\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
       "request": {
         "method": "POST",
         "header": [
@@ -1977,7 +1996,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\"job_id\":{{JobID}},\"engineer_id\":{{EngID}}\r\n}",
+          "raw": "{\r\n    \"job_id\":{{JobID}},\r\n    \"engineer_id\":2\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -1985,15 +2004,10 @@
           }
         },
         "url": {
-          "raw": "http://64.227.160.186:9000/v1/engineer/assign",
-          "protocol": "http",
+          "raw": "{{Base URL}}/v1/engineer/assign",
           "host": [
-            "64",
-            "227",
-            "160",
-            "186"
+            "{{Base URL}}"
           ],
-          "port": "9000",
           "path": [
             "v1",
             "engineer",
@@ -2469,9 +2483,12 @@
           "script": {
             "exec": [
               "\r",
-              "console.log(\"after pre-reponse@@@@@@@@@@!\")\r",
-              "console.log(pm.collectionVariables.get(\"JobID\"))\r",
-              "pm.test(\"verfiy message\",function(){\r",
+              "\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "})\r",
+              "\r",
+              "pm.test(\"verfiy message\", function () {\r",
               "    pm.expect(pm.response.json().message).to.be.eql(\"Repair successful.\")\r",
               "})"
             ],
@@ -2485,7 +2502,7 @@
           "script": {
             "exec": [
               "\r",
-              "console.log(pm.collectionVariables.get(\"JobID\"))"
+              "console.log(\"value of JobID is : \"+pm.collectionVariables.get(\"JobID\"))"
             ],
             "type": "text/javascript",
             "packages": {},
@@ -2497,41 +2514,13 @@
         "method": "POST",
         "header": [
           {
-            "key": "Accept",
-            "value": "application/json, text/plain, */*"
-          },
-          {
-            "key": "Accept-Language",
-            "value": "en-GB,en-US;q=0.9,en;q=0.8"
-          },
-          {
             "key": "Authorization",
             "value": "{{engtoken}}"
-          },
-          {
-            "key": "Connection",
-            "value": "keep-alive"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          },
-          {
-            "key": "Origin",
-            "value": "http://phoenix.techwithjatin.com"
-          },
-          {
-            "key": "Referer",
-            "value": "http://phoenix.techwithjatin.com/"
-          },
-          {
-            "key": "User-Agent",
-            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\"job_id\":{{JobID}},\"problems\":[{\"id\":6,\"remark\":\"due to overuse\"}]}",
+          "raw": "{\r\n    \"job_id\": {{JobID}},\r\n    \"problems\": [\r\n        {\r\n            \"id\": 5,\r\n            \"remark\": \"due to overuse\"\r\n        }\r\n    ]\r\n}",
           "options": {
             "raw": {
               "language": "json"

@@ -26,3 +26,10 @@ jobs:
       - name: Run collection
         run: |
           newman run "In Warranty flw.postman_collection.json" -e "QA env.postman_environment.json" -r cli,htmlextra
+
+      - name: Newwman HTML report
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: Newwman-REPORT
+          path: newman/*.html

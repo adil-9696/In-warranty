@@ -2477,6 +2477,17 @@
             "packages": {},
             "requests": {}
           }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "setTimeout(()=> {}, 2000)"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
         }
       ],
       "request": {
@@ -2922,6 +2933,17 @@
               "{\r",
               "    pm.expect(pm.response.json().message).to.eql(\"QC completed successfully\");\r",
               "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "setTimeout(()=> {}, 2000)"
             ],
             "type": "text/javascript",
             "packages": {},
